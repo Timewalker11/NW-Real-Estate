@@ -1,4 +1,4 @@
-/* Blue Venture Realty — shared site behavior */
+/* NW Real Estate — shared site behavior */
 
 document.addEventListener("DOMContentLoaded", function () {
   initNav();
