@@ -136,13 +136,57 @@ function initMortgageCalculator() {
   calculate();
 }
 
-/* Contact form (front-end only demo submission) */
+/* Contact form — submits to the backend, which stores the message and emails it */
 function initContactForm() {
   var form = document.getElementById("contact-form");
   if (!form) return;
+
+  var successBanner = document.getElementById("form-success");
+  var errorBanner = document.getElementById("form-error");
+  var submitBtn = form.querySelector('button[type="submit"]');
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    document.getElementById("form-success").classList.add("show");
-    form.reset();
+
+    successBanner.classList.remove("show");
+    errorBanner.classList.remove("show");
+
+    var payload = {
+      name: document.getElementById("c-name").value,
+      phone: document.getElementById("c-phone").value,
+      email: document.getElementById("c-email").value,
+      topic: document.getElementById("c-topic").value,
+      message: document.getElementById("c-message").value,
+    };
+
+    var originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    })
+      .then(function (res) {
+        return res.json().then(function (data) {
+          return { ok: res.ok, data: data };
+        });
+      })
+      .then(function (result) {
+        if (result.ok && result.data.ok) {
+          successBanner.classList.add("show");
+          form.reset();
+        } else {
+          errorBanner.classList.add("show");
+        }
+      })
+      .catch(function () {
+        errorBanner.classList.add("show");
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalBtnText;
+      });
   });
 }

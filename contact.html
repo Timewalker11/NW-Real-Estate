@@ -111,25 +111,26 @@
         <p style="margin-bottom:24px;">Whether you have a quick question or you're ready to get pre-approved, fill out the form below and the right person on our team will follow up.</p>
 
         <div class="form-success" id="form-success">Thanks — your message has been received. A member of our team will reach out within one business day.</div>
+        <div class="form-error" id="form-error">Something went wrong sending your message. Please try again or call us directly.</div>
 
         <form id="contact-form">
           <div class="form-row">
             <div class="field">
               <label for="c-name">Full Name</label>
-              <input type="text" id="c-name" required placeholder="Jane Smith">
+              <input type="text" id="c-name" name="name" required placeholder="Jane Smith">
             </div>
             <div class="field">
               <label for="c-phone">Phone</label>
-              <input type="tel" id="c-phone" placeholder="(555) 555-5555">
+              <input type="tel" id="c-phone" name="phone" placeholder="(555) 555-5555">
             </div>
           </div>
           <div class="field">
             <label for="c-email">Email</label>
-            <input type="email" id="c-email" required placeholder="jane@email.com">
+            <input type="email" id="c-email" name="email" required placeholder="jane@email.com">
           </div>
           <div class="field">
             <label for="c-topic">I'm interested in&hellip;</label>
-            <select id="c-topic">
+            <select id="c-topic" name="topic">
               <option>Getting pre-approved for a mortgage</option>
               <option>Buying a home</option>
               <option>Selling a home</option>
@@ -139,7 +140,7 @@
           </div>
           <div class="field">
             <label for="c-message">Message</label>
-            <textarea id="c-message" rows="5" placeholder="Tell us a bit about what you're looking for..."></textarea>
+            <textarea id="c-message" name="message" rows="5" placeholder="Tell us a bit about what you're looking for..."></textarea>
           </div>
           <button type="submit" class="btn btn-navy btn-block">Send Message</button>
         </form>

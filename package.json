@@ -1,0 +1,18 @@
+{
+  "name": "nw-real-estate",
+  "version": "1.0.0",
+  "description": "NW Real Estate website with contact form backend",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^9.0.3"
+  }
+}
