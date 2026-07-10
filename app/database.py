@@ -1,9 +1,15 @@
+import os
 from pathlib import Path
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
-DB_PATH = Path(__file__).resolve().parent.parent / "app.db"
+# In production, DATA_DIR should point at a mounted persistent volume
+# (e.g. a Railway Volume) so the database survives deploys and restarts.
+# It defaults to the project root for local development.
+DATA_DIR = Path(os.environ.get("DATA_DIR", Path(__file__).resolve().parent.parent))
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+DB_PATH = DATA_DIR / "app.db"
 DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
