@@ -127,8 +127,8 @@
                 <textarea id="message" name="message" rows="5" required></textarea>
               </div>
               <button type="submit" class="btn btn-primary">Send Message</button>
-              <p class="form-note">This form is not yet connected to an email or database backend. Until it is, please reach out using the phone or email above.</p>
-              <div id="form-success" class="form-success">Thanks — this demo form captured your entry locally, but no message was actually sent anywhere. Connect a backend to enable real submissions.</div>
+              <div id="form-success" class="form-success" style="display:none;">Thanks for reaching out — your message has been sent, and we'll get back to you soon.</div>
+              <div id="form-error" class="form-error" style="display:none;">Something went wrong sending your message. Please try again or reach out using the phone or email above.</div>
             </form>
           </div>
         </div>

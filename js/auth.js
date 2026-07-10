@@ -10,6 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     guestEls.forEach((el) => { el.hidden = true; });
     userEls.forEach((el) => { el.hidden = false; });
     nameEls.forEach((el) => { el.textContent = `Hi, ${user.name}`; });
+
+    const contactForm = document.querySelector('#contact-form');
+    if (contactForm) {
+      const nameField = contactForm.querySelector('#name');
+      const emailField = contactForm.querySelector('#email');
+      if (nameField && !nameField.value) nameField.value = user.name;
+      if (emailField && !emailField.value) emailField.value = user.email;
+    }
   }
 
   function showLoggedOut() {

@@ -21,3 +21,16 @@ class UserOut(BaseModel):
     email: EmailStr
 
     model_config = {"from_attributes": True}
+
+
+class ContactRequest(BaseModel):
+    name: str = Field(min_length=1, max_length=120)
+    email: EmailStr
+    phone: Optional[str] = Field(default=None, max_length=40)
+    message: str = Field(min_length=1, max_length=4000)
+
+
+class ContactOut(BaseModel):
+    id: int
+
+    model_config = {"from_attributes": True}

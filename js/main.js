@@ -60,13 +60,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const contactForm = document.querySelector('#contact-form');
   if (contactForm) {
-    contactForm.addEventListener('submit', (event) => {
+    const successNote = document.querySelector('#form-success');
+    const errorNote = document.querySelector('#form-error');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    contactForm.addEventListener('submit', async (event) => {
       event.preventDefault();
-      const successNote = document.querySelector('#form-success');
-      if (successNote) {
-        successNote.style.display = 'block';
+      if (successNote) successNote.style.display = 'none';
+      if (errorNote) errorNote.style.display = 'none';
+      if (submitBtn) submitBtn.disabled = true;
+
+      const payload = {
+        name: document.querySelector('#name').value.trim(),
+        email: document.querySelector('#email').value.trim(),
+        phone: document.querySelector('#phone').value.trim() || null,
+        message: document.querySelector('#message').value.trim(),
+      };
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          credentials: 'include',
+          body: JSON.stringify(payload),
+        });
+        if (!response.ok) throw new Error('request failed');
+        if (successNote) successNote.style.display = 'block';
+        contactForm.reset();
+      } catch (err) {
+        if (errorNote) errorNote.style.display = 'block';
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
       }
-      contactForm.reset();
     });
   }
 });

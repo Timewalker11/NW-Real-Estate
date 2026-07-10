@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from sqlalchemy import inspect, text
 
 from app.database import Base, engine
-from app.routers import auth, listings
+from app.routers import auth, contact, listings
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
 
@@ -20,6 +20,7 @@ if "referral_source" not in _existing_columns:
 app = FastAPI(title="NW Real Estate and Mortgage")
 
 app.include_router(auth.router)
+app.include_router(contact.router)
 app.include_router(listings.router)
 
 app.mount("/css", StaticFiles(directory=ROOT_DIR / "css"), name="css")
