@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NW Real Estate and Mortgage | Homes &amp; Home Financing</title>
+  <meta name="description" content="NW Real Estate and Mortgage helps home buyers, sellers, and homeowners with real estate guidance and in-house mortgage support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a href="home.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none"><path d="M12 2L6 11H9L4 19H20L15 11H18L12 2Z" fill="currentColor"/><rect x="10.5" y="19" width="3" height="3" fill="currentColor"/></svg>
+        <span>
+          NW Real Estate and Mortgage
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="home.html" aria-current="page">Home</a></li>
+        <li class="nav-item has-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Real Estate
+            <svg class="dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu">
+            <li><a href="buy.html">Buy</a></li>
+            <li><a href="sell.html">Sell</a></li>
+            <li><a href="rent.html">Rent (for Landlords)</a></li>
+            <li><a href="buying-selling.html">Buying &amp; Selling Guide</a></li>
+          </ul>
+        </li>
+        <li><a href="mortgage.html">Mortgage</a></li>
+        <li><a href="resources.html">Resources</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="login.html" class="btn btn-outline" data-auth="guest">Log In</a>
+        <a href="signup.html" class="btn btn-primary" data-auth="guest">Sign Up</a>
+        <div class="nav-account" data-auth="user" hidden>
+          <span class="nav-account-name" data-account-name></span>
+          <button type="button" class="btn btn-outline" data-logout-btn>Log Out</button>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow" style="display:block; text-align:center;">Real Estate &amp; Mortgage, Together</p>
+        <h1 style="text-align:center;">NW Real Estate and Mortgage</h1>
+        <div class="hero-search" style="margin-top:16px;">
+          <div class="hero-search-tabs" role="tablist">
+            <button type="button" class="hero-tab is-active" role="tab" aria-selected="true" data-mode="buy">Buy</button>
+            <button type="button" class="hero-tab" role="tab" aria-selected="false" data-mode="sell">Sell</button>
+            <button type="button" class="hero-tab" role="tab" aria-selected="false" data-mode="rent">Rent</button>
+          </div>
+          <form class="hero-search-bar" action="contact.html" method="get">
+            <input type="text" name="location" class="hero-search-input" placeholder="Enter a city, neighborhood, or ZIP code" aria-label="Search by city, neighborhood, or ZIP code" />
+            <input type="hidden" name="mode" value="buy" class="hero-search-mode" />
+            <button type="submit" class="btn btn-gold hero-search-btn">Search</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">What We Do</p>
+          <h2>One Team for Every Step of Your Home Journey</h2>
+          <p>Whether you're purchasing your first home, selling a property, or securing financing, our team keeps everything connected under one roof.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg>
+            <h3>Buying a Home</h3>
+            <p>Guidance through home search, financing, offers, and closing — tailored to your goals and budget.</p>
+            <a href="buy.html" class="card-link">Learn about buying &rarr;</a>
+          </div>
+          <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11V4h7l10 10-7 7-10-10z"/><circle cx="7.5" cy="7.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+            <h3>Selling Your Home</h3>
+            <p>A clear plan for pricing, preparing, marketing, and negotiating the sale of your property.</p>
+            <a href="sell.html" class="card-link">Learn about selling &rarr;</a>
+          </div>
+          <div class="card">
+            <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10l9-6 9 6"/><path d="M4 10h16v2H4z"/><path d="M6 12v7M10 12v7M14 12v7M18 12v7"/><path d="M3 21h18"/></svg>
+            <h3>Mortgage &amp; Financing</h3>
+            <p>In-house support to help you understand loan options and move toward pre-approval with confidence.</p>
+            <a href="mortgage.html" class="card-link">Explore mortgage options &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="container">
+        <div class="agent-block">
+          <div class="agent-avatar" aria-hidden="true">NW</div>
+          <div>
+            <p class="eyebrow">Meet Your Agent</p>
+            <h2 class="agent-name">Nancy Wu</h2>
+            <p class="agent-title">Real Estate Agent &amp; Mortgage Advisor, NW Real Estate and Mortgage</p>
+            <p class="agent-bio">Nancy Wu founded NW Real Estate and Mortgage to give home buyers, sellers, and homeowners a single point of contact for both the real estate and financing sides of a transaction, with direct, personal communication throughout the process.</p>
+            <p class="license-note">Real Estate License #: <span class="placeholder">[RE LICENSE NUMBER — placeholder]</span> &nbsp;&middot;&nbsp; NMLS #: <span class="placeholder">[NMLS NUMBER — placeholder]</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="grid grid-2" style="align-items:center;">
+          <div>
+            <p class="eyebrow">Why Choose Us</p>
+            <h2 style="color:var(--color-navy); font-size:2rem; margin-bottom:24px;">A More Connected Way to Buy, Sell, and Finance</h2>
+            <ul class="feature-list">
+              <li><span class="check">&#10003;</span><span>Local market knowledge, applied to your specific neighborhood and goals.</span></li>
+              <li><span class="check">&#10003;</span><span>Real estate and mortgage support from one connected team, reducing back-and-forth between separate companies.</span></li>
+              <li><span class="check">&#10003;</span><span>Clear, step-by-step communication so you always know what happens next.</span></li>
+              <li><span class="check">&#10003;</span><span>Personalized guidance from your first conversation through closing day.</span></li>
+            </ul>
+          </div>
+          <div class="card" style="padding:40px;">
+            <h3>Ready to talk about your move?</h3>
+            <p>Tell us a bit about what you're looking to do — buy, sell, refinance, or just explore your options — and we'll follow up directly.</p>
+            <a href="contact.html" class="btn btn-primary">Contact Nancy</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2>Let's find the right next step for your home.</h2>
+            <p>Reach out to start a conversation — no pressure, just a straightforward first step.</p>
+          </div>
+          <a href="contact.html" class="btn btn-gold">Get in Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg class="brand-mark" viewBox="0 0 24 24" fill="none"><path d="M12 2L6 11H9L4 19H20L15 11H18L12 2Z" fill="currentColor"/><rect x="10.5" y="19" width="3" height="3" fill="currentColor"/></svg>
+            <span>NW Real Estate and Mortgage</span>
+          </div>
+          <p>Real estate and mortgage services for home buyers, sellers, and homeowners.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="buy.html">Buy</a></li>
+            <li><a href="sell.html">Sell</a></li>
+            <li><a href="rent.html">Rent (for Landlords)</a></li>
+            <li><a href="buying-selling.html">Buying &amp; Selling Guide</a></li>
+            <li><a href="mortgage.html">Mortgage</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:+19253516836">(+1) 925-351-6836</a></li>
+            <li><a href="mailto:nancy.reloan@gmail.com">nancy.reloan@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <span>&copy; <span data-current-year>2026</span> NW Real Estate and Mortgage. All rights reserved.</span>
+        <span class="placeholder">RE License #: [placeholder] &middot; NMLS #: [placeholder]</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

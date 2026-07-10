@@ -1,0 +1,17 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0e3d3"/>
+      <stop offset="1" stop-color="#faf5ec"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="300" fill="url(#sky4)"/>
+  <rect x="0" y="228" width="400" height="72" fill="#b7c99a"/>
+  <rect x="130" y="155" width="150" height="75" fill="#f8f0e3"/>
+  <polygon points="120,155 205,100 290,155" fill="#b5623b"/>
+  <rect x="188" y="190" width="26" height="40" fill="#7a4a2b"/>
+  <circle cx="150" cy="185" r="14" fill="#e9f2fa" stroke="#7a4a2b" stroke-width="3"/>
+  <circle cx="252" cy="185" r="14" fill="#e9f2fa" stroke="#7a4a2b" stroke-width="3"/>
+  <rect x="70" y="205" width="20" height="25" fill="#6f8f5a"/>
+  <rect x="95" y="195" width="16" height="35" fill="#6f8f5a"/>
+</svg>

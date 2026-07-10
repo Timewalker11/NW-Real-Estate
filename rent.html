@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | NW Real Estate and Mortgage</title>
-  <meta name="description" content="Get in touch with Nancy Wu at NW Real Estate and Mortgage." />
+  <title>Rent (for Landlords) | NW Real Estate and Mortgage</title>
+  <meta name="description" content="Rental support for landlords from NW Real Estate and Mortgage, including pricing, tenant placement, and ongoing guidance." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
@@ -21,21 +21,21 @@
       </a>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
-        <li class="nav-item has-dropdown">
-          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item has-dropdown is-active">
+          <button type="button" class="nav-dropdown-toggle is-active" aria-haspopup="true" aria-expanded="false">
             Real Estate
             <svg class="dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <ul class="nav-dropdown-menu">
             <li><a href="buy.html">Buy</a></li>
             <li><a href="sell.html">Sell</a></li>
-            <li><a href="rent.html">Rent (for Landlords)</a></li>
+            <li><a href="rent.html" aria-current="page">Rent (for Landlords)</a></li>
             <li><a href="buying-selling.html">Buying &amp; Selling Guide</a></li>
           </ul>
         </li>
         <li><a href="mortgage.html">Mortgage</a></li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta">
         <a href="login.html" class="btn btn-outline" data-auth="guest">Log In</a>
@@ -54,70 +54,48 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <p class="eyebrow">Contact</p>
-        <h1>Let's Talk About Your Next Move</h1>
-        <p>Reach out directly, or send a message using the form below. All contact details shown here are placeholders until real business information is added.</p>
+        <p class="eyebrow">For Landlords</p>
+        <h1>Turn Your Property Into a Well-Managed Rental</h1>
+        <p>Whether you're renting out a single property or building a portfolio, we help you price it right, find qualified tenants, and stay ahead of the details.</p>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="agent-avatar" style="width:110px;height:110px;font-size:1.7rem;margin-bottom:20px;">NW</div>
-            <h3 style="margin-bottom:2px;">Nancy Wu</h3>
-            <p class="agent-title" style="margin-bottom:20px;">Real Estate Agent &amp; Mortgage Advisor</p>
-
-            <div class="contact-row">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11 11 0 003.4.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.4 1 1 0 01-.25 1z"/></svg>
-              <div>
-                <strong>Phone</strong>
-                <span><a href="tel:+19253516836">(+1) 925-351-6836</a></span>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v14H4z"/><path d="M4 6l8 7 8-7"/></svg>
-              <div>
-                <strong>Email</strong>
-                <span><a href="mailto:nancy.reloan@gmail.com">nancy.reloan@gmail.com</a></span>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg>
-              <div>
-                <strong>Licensing</strong>
-                <span class="placeholder">RE License #: [placeholder]</span><br />
-                <span class="placeholder">NMLS #: [placeholder]</span>
-              </div>
-            </div>
+        <div class="section-heading">
+          <p class="eyebrow">How We Help Landlords</p>
+          <h2>Support From Listing to Lease</h2>
+          <p>General areas we can help with as you prepare to rent out a property.</p>
+        </div>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Rental Pricing</h3>
+            <p>Review comparable rentals in your area to help set a rate that attracts tenants while reflecting your property's value.</p>
           </div>
-
-          <div class="contact-card">
-            <h3>Send a Message</h3>
-            <form id="contact-form">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone (optional)</label>
-                <input type="tel" id="phone" name="phone" />
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Send Message</button>
-              <p class="form-note">This form is not yet connected to an email or database backend. Until it is, please reach out using the phone or email above.</p>
-              <div id="form-success" class="form-success">Thanks — this demo form captured your entry locally, but no message was actually sent anywhere. Connect a backend to enable real submissions.</div>
-            </form>
+          <div class="card">
+            <h3>Tenant Placement &amp; Screening</h3>
+            <p>Market the property, field inquiries, and help evaluate applicants so you can move forward with a qualified tenant.</p>
           </div>
+          <div class="card">
+            <h3>Lease Preparation</h3>
+            <p>Get the lease terms and paperwork organized so expectations are clear for both you and your tenant from day one.</p>
+          </div>
+          <div class="card">
+            <h3>Ongoing Guidance</h3>
+            <p>Have a question after your tenant moves in? We're a resource for landlords beyond just the initial placement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2>Ready to rent out your property?</h2>
+            <p>Reach out and we'll talk through your property, your timeline, and what to expect.</p>
+          </div>
+          <a href="contact.html" class="btn btn-gold">Contact Nancy</a>
         </div>
       </div>
     </section>

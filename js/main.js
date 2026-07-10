@@ -1,192 +1,72 @@
-/* NW Real Estate — shared site behavior */
+// NW Real Estate and Mortgage — shared front-end behavior
 
-document.addEventListener("DOMContentLoaded", function () {
-  initNav();
-  initDropdowns();
-  initAccordions();
-  initTabs();
-  initMortgageCalculator();
-  initContactForm();
-  markActiveNav();
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const header = document.querySelector('.site-header');
+  const toggle = document.querySelector('.nav-toggle');
 
-/* Mobile nav toggle */
-function initNav() {
-  var toggle = document.querySelector(".nav-toggle");
-  var menu = document.querySelector(".nav-menu");
-  if (!toggle || !menu) return;
-  toggle.addEventListener("click", function () {
-    menu.classList.toggle("open");
-    var expanded = menu.classList.contains("open");
-    toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-  });
-}
-
-/* Dropdown menus — hover on desktop, tap on mobile */
-function initDropdowns() {
-  var items = document.querySelectorAll(".has-dropdown > a");
-  items.forEach(function (link) {
-    link.addEventListener("click", function (e) {
-      if (window.innerWidth <= 980) {
-        e.preventDefault();
-        var parent = link.parentElement;
-        var wasOpen = parent.classList.contains("open");
-        document.querySelectorAll(".has-dropdown.open").forEach(function (el) {
-          el.classList.remove("open");
-        });
-        if (!wasOpen) parent.classList.add("open");
-      }
+  if (toggle && header) {
+    toggle.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-  });
-}
-
-/* Highlight current page in nav */
-function markActiveNav() {
-  var path = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav-menu > li").forEach(function (li) {
-    var link = li.querySelector(":scope > a");
-    if (!link) return;
-    var href = link.getAttribute("href").split("#")[0];
-    if (href === path) li.classList.add("active");
-  });
-}
-
-/* Accordion (FAQ / glossary) */
-function initAccordions() {
-  document.querySelectorAll(".accordion-trigger").forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var item = btn.closest(".accordion-item");
-      var panel = item.querySelector(".accordion-panel");
-      var isOpen = item.classList.contains("open");
-      item.parentElement.querySelectorAll(".accordion-item.open").forEach(function (el) {
-        if (el !== item) {
-          el.classList.remove("open");
-          el.querySelector(".accordion-panel").style.maxHeight = null;
-        }
-      });
-      if (isOpen) {
-        item.classList.remove("open");
-        panel.style.maxHeight = null;
-      } else {
-        item.classList.add("open");
-        panel.style.maxHeight = panel.scrollHeight + "px";
-      }
-    });
-  });
-}
-
-/* Tabs (Buying / Selling) */
-function initTabs() {
-  var tabButtons = document.querySelectorAll("[data-tab-target]");
-  if (!tabButtons.length) return;
-  tabButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var group = btn.closest("[data-tabs]");
-      var target = btn.getAttribute("data-tab-target");
-      group.querySelectorAll(".tab-btn").forEach(function (b) { b.classList.remove("active"); });
-      group.querySelectorAll(".tab-panel").forEach(function (p) { p.classList.remove("active"); });
-      btn.classList.add("active");
-      group.querySelector('[data-tab-panel="' + target + '"]').classList.add("active");
-    });
-  });
-}
-
-/* Mortgage payment calculator */
-function initMortgageCalculator() {
-  var form = document.getElementById("calc-form");
-  if (!form) return;
-
-  function calculate() {
-    var price = parseFloat(document.getElementById("calc-price").value) || 0;
-    var downPct = parseFloat(document.getElementById("calc-down").value) || 0;
-    var rate = parseFloat(document.getElementById("calc-rate").value) || 0;
-    var years = parseFloat(document.getElementById("calc-term").value) || 30;
-    var taxRate = parseFloat(document.getElementById("calc-tax").value) || 0;
-    var insurance = parseFloat(document.getElementById("calc-insurance").value) || 0;
-
-    var downAmount = price * (downPct / 100);
-    var loanAmount = Math.max(price - downAmount, 0);
-    var monthlyRate = rate / 100 / 12;
-    var numPayments = years * 12;
-
-    var principalAndInterest = 0;
-    if (loanAmount > 0 && monthlyRate > 0) {
-      principalAndInterest =
-        (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -numPayments));
-    } else if (loanAmount > 0) {
-      principalAndInterest = loanAmount / numPayments;
-    }
-
-    var monthlyTax = (price * (taxRate / 100)) / 12;
-    var monthlyInsurance = insurance / 12;
-    var total = principalAndInterest + monthlyTax + monthlyInsurance;
-
-    var fmt = function (n) {
-      return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
-    };
-
-    document.getElementById("calc-total").textContent = fmt(total);
-    document.getElementById("calc-pi").textContent = fmt(principalAndInterest);
-    document.getElementById("calc-tax-out").textContent = fmt(monthlyTax);
-    document.getElementById("calc-insurance-out").textContent = fmt(monthlyInsurance);
-    document.getElementById("calc-loan-amount").textContent = fmt(loanAmount);
   }
 
-  form.addEventListener("input", calculate);
-  calculate();
-}
+  const yearEl = document.querySelector('[data-current-year]');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-/* Contact form — submits to the backend, which stores the message and emails it */
-function initContactForm() {
-  var form = document.getElementById("contact-form");
-  if (!form) return;
+  const heroTabs = document.querySelectorAll('.hero-tab');
+  const heroModeInput = document.querySelector('.hero-search-mode');
+  const heroSearchInput = document.querySelector('.hero-search-input');
+  const heroPlaceholders = {
+    buy: 'Enter a city, neighborhood, or ZIP code',
+    sell: 'Enter your property address',
+    rent: 'Enter a city, neighborhood, or ZIP code',
+  };
 
-  var successBanner = document.getElementById("form-success");
-  var errorBanner = document.getElementById("form-error");
-  var submitBtn = form.querySelector('button[type="submit"]');
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    successBanner.classList.remove("show");
-    errorBanner.classList.remove("show");
-
-    var payload = {
-      name: document.getElementById("c-name").value,
-      phone: document.getElementById("c-phone").value,
-      email: document.getElementById("c-email").value,
-      topic: document.getElementById("c-topic").value,
-      message: document.getElementById("c-message").value,
-    };
-
-    var originalBtnText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-
-    fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    })
-      .then(function (res) {
-        return res.json().then(function (data) {
-          return { ok: res.ok, data: data };
-        });
-      })
-      .then(function (result) {
-        if (result.ok && result.data.ok) {
-          successBanner.classList.add("show");
-          form.reset();
-        } else {
-          errorBanner.classList.add("show");
-        }
-      })
-      .catch(function () {
-        errorBanner.classList.add("show");
-      })
-      .finally(function () {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalBtnText;
+  heroTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      heroTabs.forEach((t) => {
+        t.classList.remove('is-active');
+        t.setAttribute('aria-selected', 'false');
       });
+      tab.classList.add('is-active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const mode = tab.dataset.mode;
+      if (heroModeInput) heroModeInput.value = mode;
+      if (heroSearchInput) heroSearchInput.placeholder = heroPlaceholders[mode] || heroPlaceholders.buy;
+    });
   });
-}
+
+  document.querySelectorAll('.nav-dropdown-toggle').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const item = btn.closest('.nav-item');
+      const isOpen = item.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    document.querySelectorAll('.nav-item.has-dropdown.is-open').forEach((item) => {
+      if (!item.contains(event.target)) {
+        item.classList.remove('is-open');
+        item.querySelector('.nav-dropdown-toggle').setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  const contactForm = document.querySelector('#contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const successNote = document.querySelector('#form-success');
+      if (successNote) {
+        successNote.style.display = 'block';
+      }
+      contactForm.reset();
+    });
+  }
+});

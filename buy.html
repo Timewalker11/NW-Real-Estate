@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mortgage &amp; Financing | NW Real Estate and Mortgage</title>
-  <meta name="description" content="In-house mortgage support and loan options from NW Real Estate and Mortgage for home buyers." />
+  <title>Buy | NW Real Estate and Mortgage</title>
+  <meta name="description" content="Start your home search with NW Real Estate and Mortgage, with in-house financing support along the way." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
@@ -21,19 +21,19 @@
       </a>
       <ul class="nav-links">
         <li><a href="home.html">Home</a></li>
-        <li class="nav-item has-dropdown">
-          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item has-dropdown is-active">
+          <button type="button" class="nav-dropdown-toggle is-active" aria-haspopup="true" aria-expanded="false">
             Real Estate
             <svg class="dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <ul class="nav-dropdown-menu">
-            <li><a href="buy.html">Buy</a></li>
+            <li><a href="buy.html" aria-current="page">Buy</a></li>
             <li><a href="sell.html">Sell</a></li>
             <li><a href="rent.html">Rent (for Landlords)</a></li>
             <li><a href="buying-selling.html">Buying &amp; Selling Guide</a></li>
           </ul>
         </li>
-        <li><a href="mortgage.html" aria-current="page">Mortgage</a></li>
+        <li><a href="mortgage.html">Mortgage</a></li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -54,73 +54,69 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <p class="eyebrow">Mortgage &amp; Financing</p>
-        <h1>In-House Mortgage Support, Connected to Your Home Search</h1>
-        <p>Understanding your financing options early makes the rest of the process easier. Here's an overview of common loan types and how the mortgage process generally works.</p>
+        <p class="eyebrow">Buy</p>
+        <h1>Ready to Find Your Next Home?</h1>
+        <p>From your first conversation to closing day, we'll help you search with confidence and know exactly where you stand financially at every step.</p>
       </div>
     </section>
 
     <section>
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Loan Options</p>
-          <h2>Common Types of Home Loans</h2>
-          <p>The right loan depends on your finances, goals, and eligibility. These are general descriptions to help you start the conversation.</p>
+          <p class="eyebrow">Find a Home</p>
+          <h2>Search Available Listings</h2>
+          <p>Search by ZIP code, city, or MLS number. These are sample listings for demonstration until this page is connected to a live MLS feed.</p>
         </div>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Conventional Loans</h3>
-            <p>Not backed by a government agency, typically requiring a stronger credit profile and a down payment that can vary based on the lender and loan program.</p>
-          </div>
-          <div class="card">
-            <h3>FHA Loans</h3>
-            <p>Backed by the Federal Housing Administration, often with more flexible credit requirements and lower minimum down payments.</p>
-          </div>
-          <div class="card">
-            <h3>VA Loans</h3>
-            <p>Available to eligible veterans, service members, and certain surviving spouses, often with no down payment required.</p>
-          </div>
-          <div class="card">
-            <h3>Refinancing</h3>
-            <p>Replacing an existing mortgage with a new one, which may help adjust your rate, term, or monthly payment depending on your situation.</p>
-          </div>
+
+        <form class="listings-search" id="listings-search">
+          <input type="text" id="listings-search-input" class="listings-search-input" placeholder="Search by ZIP code, city, or MLS number" aria-label="Search listings by ZIP code, city, or MLS number" />
+          <button type="submit" class="btn btn-gold">Search</button>
+        </form>
+
+        <p class="listings-count" id="listings-count"></p>
+
+        <div class="grid listings-grid" id="listings-grid"></div>
+
+        <div class="listings-pagination" id="listings-pagination">
+          <button type="button" class="btn btn-outline" id="listings-prev">&larr; Previous</button>
+          <div class="listings-pages" id="listings-pages"></div>
+          <button type="button" class="btn btn-outline" id="listings-next">Next &rarr;</button>
         </div>
       </div>
     </section>
 
-    <section class="section-alt">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">The Process</p>
-          <h2>How the Mortgage Process Generally Works</h2>
+    <div class="listing-modal" id="listing-modal" aria-hidden="true">
+      <div class="listing-modal-backdrop" data-modal-close></div>
+      <div class="listing-modal-panel" role="dialog" aria-modal="true" aria-labelledby="listing-modal-title">
+        <button type="button" class="listing-modal-close" data-modal-close aria-label="Close">&times;</button>
+        <div class="listing-modal-photo" id="listing-modal-photo"></div>
+        <div class="listing-modal-body">
+          <div class="listing-modal-price" id="listing-modal-price"></div>
+          <h3 id="listing-modal-title"></h3>
+          <p class="listing-modal-city" id="listing-modal-city"></p>
+          <div class="listing-modal-meta" id="listing-modal-meta"></div>
+          <p class="listing-modal-description" id="listing-modal-description"></p>
+          <dl class="listing-modal-facts" id="listing-modal-facts"></dl>
+          <a href="contact.html" class="btn btn-primary">Ask About This Home</a>
         </div>
-        <ol class="steps">
-          <li>
-            <div>
-              <h4>Pre-Qualification</h4>
-              <p>Share basic financial information to get an early sense of what you may be able to borrow.</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4>Application</h4>
-              <p>Submit a full loan application along with supporting documentation such as income and asset verification.</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4>Processing &amp; Underwriting</h4>
-              <p>Your file is reviewed and verified to confirm you meet the requirements for the loan program.</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4>Closing</h4>
-              <p>Sign final loan documents and complete the transaction, finalizing your financing.</p>
-            </div>
-          </li>
-        </ol>
-        <p class="license-note" style="margin-top:32px;">Loan programs, eligibility, and terms vary by lender and individual circumstances. NMLS #: <span class="placeholder">[NMLS NUMBER — placeholder]</span></p>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <div class="grid grid-2" style="align-items:center;">
+          <div>
+            <p class="eyebrow">Why Buy With Us</p>
+            <h2 style="color:var(--color-navy); font-size:2rem; margin-bottom:24px;">One Team for Your Search and Your Financing</h2>
+            <p style="margin-bottom:20px;">Because real estate and mortgage support live under one roof, you get a single point of contact who understands both your home search and your financing at the same time — no juggling separate companies or repeating yourself.</p>
+            <a href="buying-selling.html#buying" class="card-link">See the full step-by-step buying guide &rarr;</a>
+          </div>
+          <div class="card" style="padding:40px;">
+            <h3>Take the first step</h3>
+            <p>Tell us what you're looking for — location, budget, timeline — and we'll follow up to get you started.</p>
+            <a href="contact.html" class="btn btn-primary">Contact Nancy</a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -128,8 +124,8 @@
       <div class="container">
         <div class="cta-banner">
           <div>
-            <h2>Want to talk through your financing options?</h2>
-            <p>Reach out to start the conversation — there's no obligation to move forward.</p>
+            <h2>Thinking about buying a home?</h2>
+            <p>Reach out and we'll talk through where you are in the process and what makes sense next.</p>
           </div>
           <a href="contact.html" class="btn btn-gold">Contact Nancy</a>
         </div>
@@ -177,5 +173,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/listings.js"></script>
 </body>
 </html>
