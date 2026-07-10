@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mortgage &amp; Financing | NW Real Estate and Mortgage</title>
-  <meta name="description" content="In-house mortgage support and loan options from NW Real Estate and Mortgage for home buyers." />
+  <title>Mortgage Calculators | NW Real Estate and Mortgage</title>
+  <meta name="description" content="Estimate your monthly mortgage payment and home affordability with NW Real Estate and Mortgage's calculators." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
@@ -39,12 +39,12 @@
             <svg class="dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <ul class="nav-dropdown-menu">
-            <li><a href="mortgage.html" aria-current="page">Overview</a></li>
+            <li><a href="mortgage.html">Overview</a></li>
             <li><a href="mortgage-applying-online.html">Applying Online</a></li>
             <li><a href="mortgage-loan-application.html">Loan Application Form</a></li>
             <li><a href="mortgage-preapproval.html">Preapproval</a></li>
             <li><a href="mortgage-fico-score.html">FICO Score</a></li>
-            <li><a href="mortgage-calculators.html">Mortgage Calculators</a></li>
+            <li><a href="mortgage-calculators.html" aria-current="page">Mortgage Calculators</a></li>
           </ul>
         </li>
         <li><a href="resources.html">Resources</a></li>
@@ -67,36 +67,53 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <p class="eyebrow">Mortgage &amp; Financing</p>
-        <h1>In-House Mortgage Support, Connected to Your Home Search</h1>
-        <p>Understanding your financing options early makes the rest of the process easier. Here's an overview of common loan types and how the mortgage process generally works.</p>
+        <p class="eyebrow">Mortgage</p>
+        <h1>Mortgage Calculators</h1>
+        <p>Estimate your monthly payment and get a rough sense of what you can afford. These are general estimates — reach out for numbers tailored to your situation.</p>
       </div>
     </section>
 
     <section>
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Loan Options</p>
-          <h2>Common Types of Home Loans</h2>
-          <p>The right loan depends on your finances, goals, and eligibility. These are general descriptions to help you start the conversation.</p>
+          <p class="eyebrow">Payment Estimator</p>
+          <h2>Monthly Payment Calculator</h2>
+          <p>Estimate your principal &amp; interest payment based on home price, down payment, rate, and term.</p>
         </div>
-        <div class="grid grid-2">
-          <div class="card">
-            <h3>Conventional Loans</h3>
-            <p>Not backed by a government agency, typically requiring a stronger credit profile and a down payment that can vary based on the lender and loan program.</p>
+        <div class="card">
+          <div class="calculator-grid">
+            <form id="payment-calculator">
+              <div class="form-group">
+                <label for="pc-price">Home Price</label>
+                <input type="number" id="pc-price" min="0" step="1000" value="450000" required />
+              </div>
+              <div class="form-group">
+                <label for="pc-down">Down Payment</label>
+                <input type="number" id="pc-down" min="0" step="1000" value="90000" required />
+              </div>
+              <div class="form-group">
+                <label for="pc-rate">Interest Rate (%)</label>
+                <input type="number" id="pc-rate" min="0" step="0.05" value="6.5" required />
+              </div>
+              <div class="form-group">
+                <label for="pc-term">Loan Term</label>
+                <select id="pc-term">
+                  <option value="30">30 years</option>
+                  <option value="20">20 years</option>
+                  <option value="15">15 years</option>
+                </select>
+              </div>
+            </form>
+            <div class="calculator-output">
+              <p class="calculator-result-label">Estimated Monthly Payment (P&amp;I)</p>
+              <p class="calculator-result-value" id="pc-monthly">$0</p>
+              <ul class="calculator-breakdown">
+                <li><span>Loan Amount</span><span id="pc-loan-amount">$0</span></li>
+                <li><span>Total Principal &amp; Interest</span><span id="pc-total-interest">$0</span></li>
+              </ul>
+            </div>
           </div>
-          <div class="card">
-            <h3>FHA Loans</h3>
-            <p>Backed by the Federal Housing Administration, often with more flexible credit requirements and lower minimum down payments.</p>
-          </div>
-          <div class="card">
-            <h3>VA Loans</h3>
-            <p>Available to eligible veterans, service members, and certain surviving spouses, often with no down payment required.</p>
-          </div>
-          <div class="card">
-            <h3>Refinancing</h3>
-            <p>Replacing an existing mortgage with a new one, which may help adjust your rate, term, or monthly payment depending on your situation.</p>
-          </div>
+          <p class="form-note">Estimate only — does not include property taxes, homeowners insurance, HOA dues, or mortgage insurance.</p>
         </div>
       </div>
     </section>
@@ -104,36 +121,49 @@
     <section class="section-alt">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">The Process</p>
-          <h2>How the Mortgage Process Generally Works</h2>
+          <p class="eyebrow">Affordability</p>
+          <h2>How Much Home Can I Afford?</h2>
+          <p>A rough estimate based on your income, existing debts, and a target interest rate.</p>
         </div>
-        <ol class="steps">
-          <li>
-            <div>
-              <h4>Pre-Qualification</h4>
-              <p>Share basic financial information to get an early sense of what you may be able to borrow.</p>
+        <div class="card">
+          <div class="calculator-grid">
+            <form id="afford-calculator">
+              <div class="form-group">
+                <label for="ac-income">Annual Gross Income</label>
+                <input type="number" id="ac-income" min="0" step="1000" value="120000" required />
+              </div>
+              <div class="form-group">
+                <label for="ac-debts">Monthly Debt Payments</label>
+                <input type="number" id="ac-debts" min="0" step="50" value="400" required />
+              </div>
+              <div class="form-group">
+                <label for="ac-down">Down Payment Available</label>
+                <input type="number" id="ac-down" min="0" step="1000" value="60000" required />
+              </div>
+              <div class="form-group">
+                <label for="ac-rate">Interest Rate (%)</label>
+                <input type="number" id="ac-rate" min="0" step="0.05" value="6.5" required />
+              </div>
+              <div class="form-group">
+                <label for="ac-term">Loan Term</label>
+                <select id="ac-term">
+                  <option value="30">30 years</option>
+                  <option value="20">20 years</option>
+                  <option value="15">15 years</option>
+                </select>
+              </div>
+            </form>
+            <div class="calculator-output">
+              <p class="calculator-result-label">Estimated Max Home Price</p>
+              <p class="calculator-result-value" id="ac-price">$0</p>
+              <ul class="calculator-breakdown">
+                <li><span>Estimated Max Monthly Payment</span><span id="ac-payment">$0</span></li>
+                <li><span>Estimated Max Loan Amount</span><span id="ac-loan">$0</span></li>
+              </ul>
             </div>
-          </li>
-          <li>
-            <div>
-              <h4>Application</h4>
-              <p>Submit a full loan application along with supporting documentation such as income and asset verification.</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4>Processing &amp; Underwriting</h4>
-              <p>Your file is reviewed and verified to confirm you meet the requirements for the loan program.</p>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h4>Closing</h4>
-              <p>Sign final loan documents and complete the transaction, finalizing your financing.</p>
-            </div>
-          </li>
-        </ol>
-        <p class="license-note" style="margin-top:32px;">Loan programs, eligibility, and terms vary by lender and individual circumstances. NMLS #: <span class="placeholder">[NMLS NUMBER — placeholder]</span></p>
+          </div>
+          <p class="form-note">Uses a general 28% housing / 36% total debt guideline. Actual qualifying amounts depend on the lender, loan program, and full underwriting review.</p>
+        </div>
       </div>
     </section>
 
@@ -141,10 +171,10 @@
       <div class="container">
         <div class="cta-banner">
           <div>
-            <h2>Want to talk through your financing options?</h2>
-            <p>Reach out to start the conversation — there's no obligation to move forward.</p>
+            <h2>Want a number you can rely on?</h2>
+            <p>Reach out for pre-approval based on your full financial picture.</p>
           </div>
-          <a href="contact.html" class="btn btn-gold">Contact Nancy</a>
+          <a href="mortgage-preapproval.html" class="btn btn-gold">Get Pre-Approved</a>
         </div>
       </div>
     </section>
@@ -190,5 +220,6 @@
 
   <script src="js/main.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/mortgage-calculators.js"></script>
 </body>
 </html>

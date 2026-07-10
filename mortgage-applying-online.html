@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact | NW Real Estate and Mortgage</title>
-  <meta name="description" content="Get in touch with Nancy Wu at NW Real Estate and Mortgage." />
+  <title>Applying Online | NW Real Estate and Mortgage</title>
+  <meta name="description" content="Apply for your mortgage online with NW Real Estate and Mortgage — see what you'll need and how the process works." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
@@ -33,14 +33,14 @@
             <li><a href="buying-selling.html">Buying &amp; Selling Guide</a></li>
           </ul>
         </li>
-        <li class="nav-item has-dropdown">
-          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+        <li class="nav-item has-dropdown is-active">
+          <button type="button" class="nav-dropdown-toggle is-active" aria-haspopup="true" aria-expanded="false">
             Mortgage
             <svg class="dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
           </button>
           <ul class="nav-dropdown-menu">
             <li><a href="mortgage.html">Overview</a></li>
-            <li><a href="mortgage-applying-online.html">Applying Online</a></li>
+            <li><a href="mortgage-applying-online.html" aria-current="page">Applying Online</a></li>
             <li><a href="mortgage-loan-application.html">Loan Application Form</a></li>
             <li><a href="mortgage-preapproval.html">Preapproval</a></li>
             <li><a href="mortgage-fico-score.html">FICO Score</a></li>
@@ -48,7 +48,7 @@
           </ul>
         </li>
         <li><a href="resources.html">Resources</a></li>
-        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta">
         <a href="login.html" class="btn btn-outline-dark" data-auth="guest">Log In</a>
@@ -67,70 +67,79 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <p class="eyebrow">Contact</p>
-        <h1>Let's Talk About Your Next Move</h1>
-        <p>Reach out directly, or send a message using the form below. All contact details shown here are placeholders until real business information is added.</p>
+        <p class="eyebrow">Mortgage</p>
+        <h1>Apply for Financing Online, on Your Schedule</h1>
+        <p>Start your mortgage application from any device and pick up right where you left off. Here's what to expect and what you'll need to have on hand.</p>
       </div>
     </section>
 
     <section>
       <div class="container">
-        <div class="contact-grid">
-          <div class="contact-card">
-            <div class="agent-avatar" style="width:110px;height:110px;font-size:1.7rem;margin-bottom:20px;">NW</div>
-            <h3 style="margin-bottom:2px;">Nancy Wu</h3>
-            <p class="agent-title" style="margin-bottom:20px;">Real Estate Agent &amp; Mortgage Advisor</p>
-
-            <div class="contact-row">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11 11 0 003.4.55 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11 11 0 00.55 3.4 1 1 0 01-.25 1z"/></svg>
-              <div>
-                <strong>Phone</strong>
-                <span><a href="tel:+19253516836">(+1) 925-351-6836</a></span>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v14H4z"/><path d="M4 6l8 7 8-7"/></svg>
-              <div>
-                <strong>Email</strong>
-                <span><a href="mailto:nancy.reloan@gmail.com">nancy.reloan@gmail.com</a></span>
-              </div>
-            </div>
-
-            <div class="contact-row">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg>
-              <div>
-                <strong>Licensing</strong>
-                <span class="placeholder">RE License #: [placeholder]</span><br />
-                <span class="placeholder">NMLS #: [placeholder]</span>
-              </div>
-            </div>
+        <div class="section-heading">
+          <p class="eyebrow">Before You Start</p>
+          <h2>What You'll Need</h2>
+          <p>Having these on hand makes the online application faster to complete.</p>
+        </div>
+        <div class="grid grid-3">
+          <div class="card">
+            <h3>Identification &amp; Contact Info</h3>
+            <p>A government-issued ID along with your current address and contact details.</p>
           </div>
-
-          <div class="contact-card">
-            <h3>Send a Message</h3>
-            <form id="contact-form">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div class="form-group">
-                <label for="phone">Phone (optional)</label>
-                <input type="tel" id="phone" name="phone" />
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary">Send Message</button>
-              <p class="form-note">This form is not yet connected to an email or database backend. Until it is, please reach out using the phone or email above.</p>
-              <div id="form-success" class="form-success">Thanks — this demo form captured your entry locally, but no message was actually sent anywhere. Connect a backend to enable real submissions.</div>
-            </form>
+          <div class="card">
+            <h3>Income Documentation</h3>
+            <p>Recent pay stubs, W-2s or 1099s, and two years of tax returns if you're self-employed.</p>
           </div>
+          <div class="card">
+            <h3>Assets &amp; Debts</h3>
+            <p>Bank and investment statements along with a list of any current loans or credit obligations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">The Steps</p>
+          <h2>How Applying Online Works</h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <div>
+              <h4>Create Your Application</h4>
+              <p>Answer a short set of questions about the property and your finances to get started.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Upload Your Documents</h4>
+              <p>Securely upload income, asset, and identification documents from your computer or phone.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Review &amp; E-Sign</h4>
+              <p>Review your application details and sign initial disclosures electronically.</p>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h4>Track Your Status</h4>
+              <p>We'll follow up on next steps, and you can reach out any time with questions.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <div>
+            <h2>Prefer a paper application?</h2>
+            <p>Download the loan application form and complete it at your own pace.</p>
+          </div>
+          <a href="mortgage-loan-application.html" class="btn btn-gold">Get the Form</a>
         </div>
       </div>
     </section>

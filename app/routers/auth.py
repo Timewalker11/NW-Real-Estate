@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, Response, status
 from sqlalchemy.orm import Session
 
 from app.database import get_db
+from app.mailer import send_welcome_email
 from app.models import User
 from app.schemas import LoginRequest, SignupRequest, UserOut
 from app.security import (
@@ -25,10 +26,16 @@ def signup(payload: SignupRequest, response: Response, db: Session = Depends(get
         name=payload.name.strip(),
         email=payload.email.lower(),
         password_hash=hash_password(payload.password),
+        referral_source=payload.referral_source.strip() if payload.referral_source else None,
     )
     db.add(user)
     db.commit()
     db.refresh(user)
+
+    try:
+        send_welcome_email(user.email, user.name)
+    except Exception as exc:
+        print(f"WARNING: failed to send welcome email to {user.email}: {exc}")
 
     set_session_cookie(response, user.id)
     return user

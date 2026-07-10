@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = document.querySelector('#email').value.trim();
       const password = document.querySelector('#password').value;
       const confirmPassword = document.querySelector('#confirm-password').value;
+      const referralSource = document.querySelector('#referral-source').value;
 
       if (password !== confirmPassword) {
         showError(errorEl, 'Passwords do not match.');
@@ -100,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
-          body: JSON.stringify({ name, email, password }),
+          body: JSON.stringify({ name, email, password, referral_source: referralSource || null }),
         });
         if (!response.ok) {
           showError(errorEl, await parseErrorMessage(response));

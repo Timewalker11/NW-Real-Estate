@@ -33,16 +33,29 @@
             <li><a href="buying-selling.html">Buying &amp; Selling Guide</a></li>
           </ul>
         </li>
-        <li><a href="mortgage.html">Mortgage</a></li>
+        <li class="nav-item has-dropdown">
+          <button type="button" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            Mortgage
+            <svg class="dropdown-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="nav-dropdown-menu">
+            <li><a href="mortgage.html">Overview</a></li>
+            <li><a href="mortgage-applying-online.html">Applying Online</a></li>
+            <li><a href="mortgage-loan-application.html">Loan Application Form</a></li>
+            <li><a href="mortgage-preapproval.html">Preapproval</a></li>
+            <li><a href="mortgage-fico-score.html">FICO Score</a></li>
+            <li><a href="mortgage-calculators.html">Mortgage Calculators</a></li>
+          </ul>
+        </li>
         <li><a href="resources.html">Resources</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta">
-        <a href="login.html" class="btn btn-outline" data-auth="guest">Log In</a>
+        <a href="login.html" class="btn btn-outline-dark" data-auth="guest">Log In</a>
         <a href="signup.html" class="btn btn-primary" data-auth="guest" aria-current="page">Sign Up</a>
         <div class="nav-account" data-auth="user" hidden>
           <span class="nav-account-name" data-account-name></span>
-          <button type="button" class="btn btn-outline" data-logout-btn>Log Out</button>
+          <button type="button" class="btn btn-outline-dark" data-logout-btn>Log Out</button>
         </div>
       </div>
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -81,6 +94,18 @@
             <div class="form-group">
               <label for="confirm-password">Confirm Password</label>
               <input type="password" id="confirm-password" name="confirm-password" required minlength="8" autocomplete="new-password" />
+            </div>
+            <div class="form-group">
+              <label for="referral-source">How did you hear about us?</label>
+              <select id="referral-source" name="referral-source">
+                <option value="">Select an option</option>
+                <option value="Google Search">Google Search</option>
+                <option value="Social Media">Social Media</option>
+                <option value="Friend or Family Referral">Friend or Family Referral</option>
+                <option value="Zillow / Realtor.com">Zillow / Realtor.com</option>
+                <option value="Advertisement">Advertisement</option>
+                <option value="Other">Other</option>
+              </select>
             </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
             <div id="auth-error" class="form-error"></div>
